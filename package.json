@@ -1,10 +1,10 @@
 {
   "name": "registration-form",
   "version": "1.0.0",
-  "description": "Registration form using React,HTML5,CSS3",
+  "description": "Registration Form",
   "main": "index.js",
   "scripts": {
-    "start":""
+    "start": "webpack"
   },
   "repository": {
     "type": "git",
@@ -17,14 +17,18 @@
   },
   "homepage": "https://github.com/Alekya32/registration-form#readme",
   "dependencies": {
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
-    "webpack": "^4.4.1",
-    "webpack-cli": "^2.0.13"
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12",
+    "css-loader": "^0.28.11",
+    "style-loader": "^0.20.3",
+    "font-awesome": "^4.7.0"
   }
 }
