@@ -3,6 +3,19 @@
     height:28px;  
     width:400px;
 }
+
+.line>input { 
+    font-family: 'FontAwesome',Arial, Helvetica, sans-serif; 
+}
+.line>i {    
+	position: relative;
+    top: 23px;
+    left: 13px;
+}
+input[placeholder] {
+    padding-left: 34px;
+}
+
 h2{
     padding-left: 140px;
 }
@@ -10,21 +23,21 @@ p{
     padding-left: 81px;
 }
 input{
-    width:400px; 
-    margin-bottom: 4%;
+    width:100%; 
     height:28px;  
 }
 
 .signup{
-    position: absolute;
+     position: absolute;
 	top: 0px;
-	width: 32%;	
+	width: 400px;	
 	padding: 18px 5% 60px 5%;
 	margin: 0 0 35px 0;
 	background: rgb(247, 247, 247);
-	border: 1px solid rgba(147, 184, 189,0.8);
 	box-shadow:	
 		0pt 2px 5px rgba(105, 108, 109,  0.7),	
-		0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-	border-radius: 5px;
+		0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset; 
+		border: 1px solid rgba(147, 184, 189,0.8);
+		border-radius: 5px;
+		margin-left: 330px;
 }
