@@ -71,7 +71,7 @@ class Form extends React.Component{
             }
         }
         else if (name == 'cnfrmPssd'){
-            if(this.refs.cnfrmPssd.value == this.refs.password.value){
+            if(value == this.refs.password.value){
                 error.textContent='Passwords not match';
             }
             else{
@@ -124,7 +124,7 @@ class Form extends React.Component{
                     
                  </div>   
                     <p>By registering you agree to <br/> our <b>Terms</b> and <b>Privacy Policy</b></p>
-                    <div className="errorMsg">
+                    <div className="validationmssg">
                             {/* <div className="error" id="firstNameError"></div>
                             <div className="error" id="lastNameError"></div> */}
                             <div className="error" id="usernameError"></div>
