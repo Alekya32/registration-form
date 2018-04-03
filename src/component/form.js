@@ -86,12 +86,12 @@ class Form extends React.Component{
     handleSubmit(event){
         event.preventDefault();
         alert("Submitted successfully!!!");
-        
+          document.signup.reset();      
       }
     render(){
         return(
             <React.Fragment>
-               <form className="signup"> 
+               <form name="signup" className="signup"> 
                  <h2>Register</h2>
                  <p>Join the community and improve your game <br/>with <b>ANGLR</b></p>
                  <div className="line">
