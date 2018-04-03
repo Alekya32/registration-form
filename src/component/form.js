@@ -43,7 +43,7 @@ class Form extends React.Component{
                 error.textContent = `Email is invalid`;
                     // document.getElementsById('email').style.borderColor = "red";
             }else{
-                error.textContent = '';
+               
                   //document.getElementsById('email').style.borderColor = "lightblue";
             }
         }
@@ -54,28 +54,32 @@ class Form extends React.Component{
                  // document.getElementById('username').style.borderColor = "red";
             }
             else{
-                error.textContent = '';
+               
               // document.getElementById('username').style.borderColor = "lightblue";
             }
         }
         
         else if (name == 'password'){
             field = value;
-            if(value.length < 6){
-                error.textContent = `Password must contain 6 characters`;
+            if(value.length > 6){
+                
                 //  document.getElementById('password').style.borderColor = "red";
             }
             else{
-                error.textContent = '';
+                error.textContent = 'Password must contain 6 characters';
                  //  document.getElementById('password').style.borderColor = "grey";
             }
         }
         else if (name == 'cnfrmPssd'){
-            if(value == this.refs.password.value){
-                error.textContent='Passwords not match';
+            if((value == this.refs.password.value) && (value.length > 6)){
+                console.log(this.refs.password.value)
+                console.log("12")
+               
             }
             else{
-                error.textContent='';
+                error.textContent=`Passwords not match`;
+                console.log("34")
+               
             }
         }
     }
@@ -130,7 +134,7 @@ class Form extends React.Component{
                             <div className="error" id="usernameError"></div>
                             <div className="error" id="emailError"></div>
                             <div className="error" id="passwordError"></div>
-                            <div className="error" id="confirmPasswordError" ></div>
+                            <div className="error" id="cnfrmPssdError" ></div>
                     </div>
                  <input type="submit" name="Register" value="Register" className="register" onClick={ this.handleSubmit }/>
                  <hr/>
