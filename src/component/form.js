@@ -13,7 +13,9 @@ class Form extends React.Component{
             email:'',
             zipcode:'',
             error:'',
-            errorContent:true
+            errorContent:false,
+            regEx :/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+            alphaRegEx : /^[A-z]+$/
             };
         this.handleChange=this.handleChange.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
@@ -27,19 +29,17 @@ class Form extends React.Component{
             () => { this.fieldValidation(name, value) });
     }
 
-    fieldValidation(name,value){
-        // console.log("Hi");
-        // var num = /[0-9]/;
-        
-        var regEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        var alphaRegEx = /^[A-z]+$/;
+    componentWillUpdate(nextProps,nextState){
+       
+        nextState.errorContent = !(nextState.email.match(this.state.regEx) && nextState.password.length >= 6 && nextState.confirmPassword == nextState.password && nextState.userName.match(this.state.alphaRegEx) && nextState.firstName.match(this.state.alphaRegEx) && nextState.lastName.match(this.state.alphaRegEx))
+    }
+
+    fieldValidation(name,value){       
         const error = document.getElementById(`${name}Error`);
         var field='';
-
        
         if(name == 'email'){
-            if(!value.match(regEx)){
-                console.log(this.refs.email.value);
+            if(!value.match(this.state.regEx)){
                 error.textContent = `Email is invalid`;
                       document.getElementsByName("email")[0].style.borderColor="red";
             }else{
@@ -49,7 +49,7 @@ class Form extends React.Component{
         }
         
         else if (name == 'username'){
-            if(!value.match(alphaRegEx)){
+            if(!value.match(this.state.alphaRegEx)){
                 error.textContent = `Username is invalid`;
                 document.getElementsByName("username")[0].style.borderColor="red";
             }
@@ -61,7 +61,7 @@ class Form extends React.Component{
         
         else if (name == 'password'){
             field = value;
-            if(value.length > 6){
+            if(value.length >= 6){
                 error.textContent=` `;
                 document.getElementsByName("password")[0].style.borderColor="lightblue";
             }
@@ -71,14 +71,13 @@ class Form extends React.Component{
             }
         }
         else if (name == 'cnfrmPssd'){
-            if((value == this.refs.password.value) && (value.length > 6)){
+            if((value == this.refs.password.value) && (value.length >= 6)){
                 document.getElementsByName("cnfrmPssd")[0].style.borderColor="lightblue";
                 error.textContent=` `;
             }
             else{
                 error.textContent=`Passwords not match`;
                 document.getElementsByName("cnfrmPssd")[0].style.borderColor="red";
-               
             }
         }
     }
@@ -135,7 +134,7 @@ class Form extends React.Component{
                             <div className="error" id="passwordError"></div>
                             <div className="error" id="cnfrmPssdError" ></div>
                     </div>
-                 <input type="submit" name="Register" value="Register" className="register" onClick={ this.handleSubmit }/>
+                 <input type="submit" name="Register" value="Register" className="register" disabled={!this.state.errorContent} onClick={this.handleSubmit}/>
                  <hr/>
                  <p>Already have account?<b>SIGN IN</b> </p>
                </form>  
