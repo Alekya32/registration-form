@@ -43,7 +43,7 @@ class Form extends React.Component{
                 error.textContent = `Email is invalid`;
                       document.getElementsByName("email")[0].style.borderColor="red";
             }else{
-               
+                    error.textContent=` `;
                     document.getElementsByName("email")[0].style.borderColor="lightblue";
             }
         }
@@ -54,7 +54,7 @@ class Form extends React.Component{
                 document.getElementsByName("username")[0].style.borderColor="red";
             }
             else{
-               
+                error.textContent=` `;
                 document.getElementsByName("username")[0].style.borderColor="lightblue";
             }
         }
@@ -62,7 +62,7 @@ class Form extends React.Component{
         else if (name == 'password'){
             field = value;
             if(value.length > 6){
-                
+                error.textContent=` `;
                 document.getElementsByName("password")[0].style.borderColor="lightblue";
             }
             else{
@@ -73,7 +73,7 @@ class Form extends React.Component{
         else if (name == 'cnfrmPssd'){
             if((value == this.refs.password.value) && (value.length > 6)){
                 document.getElementsByName("cnfrmPssd")[0].style.borderColor="lightblue";
-               
+                error.textContent=` `;
             }
             else{
                 error.textContent=`Passwords not match`;
@@ -123,7 +123,7 @@ class Form extends React.Component{
                  </div>   
                  <div className="line">
                     <i><FontAwesome.FaLock /></i>
-                    <input type="password" name="cnfrmPssd" placeholder="Confirm Password" id="cnfrmPssd" ref="cnfrmPssd" value={this.state.cnfrmPssd} onChange={this.handleChange} required/>
+                    <input type="password" name="cnfrmPssd" placeholder="Confirm Password" ref="cnfrmPssd" value={this.state.cnfrmPssd} onChange={this.handleChange} required/>
                     
                  </div>   
                     <p>By registering you agree to <br/> our <b>Terms</b> and <b>Privacy Policy</b></p>
