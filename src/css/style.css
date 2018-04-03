@@ -30,6 +30,16 @@ input{
 .validationmssg{
     background-color: red;
 }
+
+/* input[type="text"]:valid::before {
+    content: "✓";
+    color: grey;
+} */
+
+/* input[type="text"]:invalid::after {
+    color: red;
+} */
+
 .signup{
      position: absolute;
 	top: 0px;

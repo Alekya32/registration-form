@@ -41,21 +41,21 @@ class Form extends React.Component{
             if(!value.match(regEx)){
                 console.log(this.refs.email.value);
                 error.textContent = `Email is invalid`;
-                    // document.getElementsById('email').style.borderColor = "red";
+                      document.getElementsByName("email")[0].style.borderColor="red";
             }else{
                
-                  //document.getElementsById('email').style.borderColor = "lightblue";
+                    document.getElementsByName("email")[0].style.borderColor="lightblue";
             }
         }
         
         else if (name == 'username'){
             if(!value.match(alphaRegEx)){
                 error.textContent = `Username is invalid`;
-                 // document.getElementById('username').style.borderColor = "red";
+                document.getElementsByName("username")[0].style.borderColor="red";
             }
             else{
                
-              // document.getElementById('username').style.borderColor = "lightblue";
+                document.getElementsByName("username")[0].style.borderColor="lightblue";
             }
         }
         
@@ -63,22 +63,21 @@ class Form extends React.Component{
             field = value;
             if(value.length > 6){
                 
-                //  document.getElementById('password').style.borderColor = "red";
+                document.getElementsByName("password")[0].style.borderColor="lightblue";
             }
             else{
                 error.textContent = 'Password must contain 6 characters';
-                 //  document.getElementById('password').style.borderColor = "grey";
+                document.getElementsByName("password")[0].style.borderColor="red";
             }
         }
         else if (name == 'cnfrmPssd'){
             if((value == this.refs.password.value) && (value.length > 6)){
-                console.log(this.refs.password.value)
-                console.log("12")
+                document.getElementsByName("cnfrmPssd")[0].style.borderColor="lightblue";
                
             }
             else{
                 error.textContent=`Passwords not match`;
-                console.log("34")
+                document.getElementsByName("cnfrmPssd")[0].style.borderColor="red";
                
             }
         }
@@ -94,7 +93,7 @@ class Form extends React.Component{
             <React.Fragment>
                <form className="signup"> 
                  <h2>Register</h2>
-                 <p>Join the community and improve your game <br/>with<b>ANGLR</b></p>
+                 <p>Join the community and improve your game <br/>with <b>ANGLR</b></p>
                  <div className="line">
                         <i><FontAwesome.FaUser/></i>
                         <input type="text" name="firstName" placeholder="First Name"/>
@@ -109,17 +108,17 @@ class Form extends React.Component{
                  </div>   
                  <div className="line">
                     <i><FontAwesome.FaEnvelope /></i>
-                    <input type="email" name="email" ref="email"  id="email" value={this.state.email} onChange={this.handleChange} placeholder="Email" required/>
+                    <input type="email" name="email" ref="email"   value={this.state.email} onChange={this.handleChange} placeholder="Email" required/>
                     
                  </div>   
                  <div className="line">
                     <i><FontAwesome.FaUser/></i>
-                    <input type="text" placeholder="User Name" name="username" ref="username" id="username" value={this.state.username} onChange={this.handleChange} required/>
+                    <input type="text" placeholder="User Name" name="username" ref="username" className="username" value={this.state.username} onChange={this.handleChange} required/>
                   
                  </div>   
                  <div className="line">
                     <i><FontAwesome.FaUnlockAlt/></i>
-                    <input type="password"  name="password" placeholder="Password" name="password" id="password" ref="password" value={this.state.password} onChange={this.handleChange} required/>
+                    <input type="password"  name="password" placeholder="Password" name="password" className="password" ref="password" value={this.state.password} onChange={this.handleChange} required/>
                    
                  </div>   
                  <div className="line">
